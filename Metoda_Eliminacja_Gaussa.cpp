@@ -15,29 +15,29 @@ void wyswietl(int n, double** A, double* x)
 
 void gauss(int n, double** A, double* x)
 {
-    for (i = 0; i < n - 1; i++)          //pêtla eliminacji Gaussa
+    for (i = 0; i < n - 1; i++)          //pÄ™tla eliminacji Gaussa
         for (k = i + 1; k < n; k++)
         {
             double t = A[k][i] / A[i][i];
             for (j = 0; j <= n; j++)
-                A[k][j] = A[k][j] - t * A[i][j];    //zerowanie elementów w macierzy 
+                A[k][j] = A[k][j] - t * A[i][j];    //zerowanie elementÃ³w w macierzy 
         }
 
     cout << "\n\nMacierz po eliminacji Gaussa:" << endl;
     wyswietl(n, A, x);
 
-    for (i = n - 1; i >= 0; i--)        //rozwiazywanie macierzy od koñca
-    {              //x jest macierz¹ której wartoœci odpowiadaj¹ wartoœci¹ x1,x2,x3...
-        x[i] = A[i][n];              //obliczanie wartoœci zaczynaj¹c od prawej strony
+    for (i = n - 1; i >= 0; i--)        //rozwiazywanie macierzy od koÅ„ca
+    {              //x jest macierzÄ… ktÃ³rej wartoÅ›ci odpowiadajÄ… wartoÅ›ciÄ… x1,x2,x3...
+        x[i] = A[i][n];              //obliczanie wartoÅ›ci zaczynajÄ…c od prawej strony
         for (j = i + 1; j < n; j++)
             if (j != i)
-                //podstawienie wszystkich wartoœci które s¹ znane na danym etapie obliczeñ
+                //podstawienie wszystkich wartoÅ›ci ktÃ³re sÄ… znane na danym etapie obliczeÅ„
                 x[i] = x[i] - A[i][j] * x[j];
-        x[i] = x[i] / A[i][i];       //podzielenie prawej strony przez wspó³czynnik zmiennej do obliczenia
+        x[i] = x[i] / A[i][i];       //podzielenie prawej strony przez wspÃ³Å‚czynnik zmiennej do obliczenia
     }
     cout << "\nWyniki:" << endl;
     for (i = 0; i < n; i++)
-        cout << x[i] << endl;        // wyœwietlenie wyników  
+        cout << x[i] << endl;        // wyÅ›wietlenie wynikÃ³w  
 }
 
 
@@ -45,12 +45,12 @@ int main()
 {
     int n;
     double** A, * x;                   //tablice dynamiczne
-        cout.precision(5);             //ustawienie dok³adnoœci
+        cout.precision(5);             //ustawienie dokÅ‚adnoÅ›ci
 
     cout << "Podaj liczbe niewiadomych:" << endl;
-    cin >> n;                      //pobranie iloœci niewiadomych
+    cin >> n;                      //pobranie iloÅ›ci niewiadomych
 
-    if (n <= 0)                    //sprawdzenie czy iloœæ niewiadomych jest dodatnia
+    if (n <= 0)                    //sprawdzenie czy iloÅ›Ä‡ niewiadomych jest dodatnia
     {
         cout << "Ilosc niewiadomyuch musi byc wieksza niz 0 ";
         return 0;
@@ -59,12 +59,12 @@ int main()
 
         A = new double* [n];
     for (i = 0; i < n; i++) A[i] = new double[n + 1]; //stworzenie tablicy
-    x = new double[n];           //stworzenie macierzy do przechowywania wartoœci równañ  
+    x = new double[n];           //stworzenie macierzy do przechowywania wartoÅ›ci rÃ³wnaÅ„  
 
-    cout << "\nPodaj wartosci macierzy" << endl;// podanie wartoœci 
+    cout << "\nPodaj wartosci macierzy" << endl;// podanie wartoÅ›ci 
     for (i = 0; i < n; i++)
         for (j = 0; j <= n; j++)
-            cin >> A[i][j];         //przypisanie wartoœci do macierzy
+            cin >> A[i][j];         //przypisanie wartoÅ›ci do macierzy
 
     cout << "\nMaceirz rzed przestawieniem: " << endl;
     wyswietl (n, A, x);
@@ -75,7 +75,7 @@ int main()
                 for (j = 0; j <= n; j++)
                 {
                     double temp = A[i][j];
-                    //przestawienie wartoœci w tablicy z u¿yciem zmiennej pomocniczej
+                    //przestawienie wartoÅ›ci w tablicy z uÅ¼yciem zmiennej pomocniczej
                     A[i][j] = A[k][j];
                     A[k][j] = temp;
                 }
