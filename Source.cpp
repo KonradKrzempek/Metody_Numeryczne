@@ -4,13 +4,13 @@
 
 using namespace std;
 
-double eps = 1e-10; // dok³adnoœæ
-double a = 1.0;  // pocz¹tek i koniec przedzia³u
+double eps = 1e-10; // dokÅ‚adnoÅ›Ä‡
+double a = 1.0;  // poczÄ…tek i koniec przedziaÅ‚u
 double b = 2.0;  
 
 double f(double x) // funkcja 
 {
-    return(x*x*x+x*x-3*x-3);
+    return(x*x*x+3*x*x-3*x-5);
 }
 
 
@@ -21,11 +21,11 @@ int main()
     cout << setprecision(10) << fixed;
  
 
-    // obliczamy wartoœci funkcji na krañcach przedzia³u [a,b]
+    // obliczamy wartoÅ›ci funkcji na kraÅ„cach przedziaÅ‚u [a,b]
     fa = f(a);
     fb = f(b);
 
-    // sprawdzamy, czy na krañcach przedzia³u [a,b] wartoœci funkcji maj¹ ró¿ne znaki
+    // sprawdzamy, czy na kraÅ„cach przedziaÅ‚u [a,b] wartoÅ›ci funkcji majÄ… rÃ³Å¼ne znaki
 
     if (fa * fb > 0) {
         cout << "Funkcja musi miec rozne znaki na koncach przedzialow" << endl;
@@ -33,17 +33,17 @@ int main()
     }
     else
 
-        // w pêtli wyznaczamy kolejne przybli¿enia pierwiastka
+        // w pÄ™tli wyznaczamy kolejne przybliÅ¼enia pierwiastka
         do 
         {
             // wyznaczamy x0
             x0 = (fa * b - fb * a) / (fa - fb);
 
-            // obliczamy i zapamiêtujemy wartoœæ funkcji w punkcie x0
+            // obliczamy i zapamiÄ™tujemy wartoÅ›Ä‡ funkcji w punkcie x0
             fx = f(x0);
 
-            // za nowy przedzia³ [a,b] przyjmujemy t¹ z czêœci [a,x0], [x0,b],
-            // w której funkcja ma ró¿ne znaki na krañcach
+            // za nowy przedziaÅ‚ [a,b] przyjmujemy tÄ… z czÄ™Å›ci [a,x0], [x0,b],
+            // w ktÃ³rej funkcja ma rÃ³Å¼ne znaki na kraÅ„cach
             if (fa * fx < 0)
             {
                 b = x0;
@@ -55,7 +55,7 @@ int main()
                 fa = fx;
             }
         } while (fabs(fx) > eps);
-        // pêtle wykonujemy do czasu uzyskania oczekiwanej dok³adnoœci
+        // pÄ™tle wykonujemy do czasu uzyskania oczekiwanej dokÅ‚adnoÅ›ci
     
 
    cout << "x0 wynosi:  " << x0 << endl;
